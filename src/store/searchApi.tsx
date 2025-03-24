@@ -9,12 +9,16 @@ export const searchApi = createApi({
   }),
   endpoints: (builder) => ({
     getSearchResult: builder.query({
+      query: (searchTerm) => `search?q=${searchTerm}&key=${API_KEY}&limit=10`,
+    }),
+    getWordSuggestions: builder.query({
       query: (searchTerm) =>
-        `search?q=${encodeURIComponent(searchTerm)}&key=${API_KEY}&limit=10`,
+        `search_suggestions?q=${searchTerm}&key=${API_KEY}`,
     }),
   }),
 });
 
-export const { useGetSearchResultQuery } = searchApi;
+export const { useGetSearchResultQuery, useGetWordSuggestionsQuery } =
+  searchApi;
 
 export default searchApi;
