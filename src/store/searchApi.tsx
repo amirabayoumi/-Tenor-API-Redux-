@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-const API_KEY = "AIzaSyBHu93a71VFyGyfXWt-9d3sQgKS4WDmHxo";
+import { API_KEY } from "./helper";
 
 export const searchApi = createApi({
   reducerPath: "searchApi",
